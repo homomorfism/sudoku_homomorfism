@@ -42,6 +42,7 @@ class GameField(BaseField, ABC):
 
     def __init__(self, amount_of_points: int, saved_state=None):
         super().__init__()
+        print("Game is creating!")
 
         # Судоку всегда 9*9
 
@@ -56,7 +57,7 @@ class GameField(BaseField, ABC):
 
         # Else generate by ourselves
         else:
-            self.game_field = np.zeros(shape=(9, 9), dtype=np.int) - 1  # Filled with -1's
+            self.game_field = np.zeros(shape=(9, 9), dtype=np.int)  # Filled with 0's
             self.fill_random_numbers(amount_of_points)
 
         # Now we are ready to play!
@@ -73,7 +74,7 @@ class GameField(BaseField, ABC):
 
                 row = random.randint(0, self.field_size - 1)
                 column = random.randint(0, self.field_size - 1)
-                value = random.randint(0, 9)
+                value = random.randint(1, 9)
 
                 if self.can_put_number(row, column, value):
                     self.put_number(row, column, value)
@@ -85,11 +86,11 @@ class GameField(BaseField, ABC):
 
     def is_field_empty(self, row, column):
 
-        return self.game_field[row][column] == -1
+        return self.game_field[row][column] == 0
 
     def put_number(self, row, column, value):
         assert self.can_put_number(row, column, value), f"Value {value} can not be set in ({row}, {column}) field!"
-        assert 0 <= value <= 9
+        assert 1 <= value <= 9
 
         self.game_field[row][column] = value
 
@@ -117,11 +118,10 @@ class GameField(BaseField, ABC):
 
         return True
 
-    @property
     def is_finished(self):
 
         # Неэффективно, можно потом тут ускорить
-        return (self.game_field == -1).sum() == 81
+        return (self.game_field == 0).sum() == 0
 
     def plot(self):
         print(self.game_field)
