@@ -32,7 +32,8 @@ Now we are ready to play! Plotting field...
  [9 1 3 7 6 8 5 2 4]
  [6 2 7 4 3 5 1 9 0]]
 Wants to save game: yes - 1, no - 0, default: 0. $ 
-Enter row, column and value to put number(in format: $1 5 7). $ [[5 8 1 6 7 2 4 3 9]
+Enter row, column and value to put number(in format: $1 5 7). $ 9 9 8
+[[5 8 1 6 7 2 4 3 9]
  [7 9 2 8 4 3 6 5 1]
  [3 6 4 5 9 1 7 8 2]
  [4 3 8 9 5 7 2 1 6]
