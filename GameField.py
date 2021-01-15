@@ -40,7 +40,7 @@ class BaseField:
 
 class GameField(BaseField, ABC):
 
-    def __init__(self, amount_of_numbers: int, saved_state=None):
+    def __init__(self, amount_of_points: int, saved_state=None):
         super().__init__()
 
         # Судоку всегда 9*9
@@ -57,7 +57,7 @@ class GameField(BaseField, ABC):
         # Else generate by ourselves
         else:
             self.game_field = np.zeros(shape=(9, 9), dtype=np.int) - 1  # Filled with -1's
-            self.fill_random_numbers(amount_of_numbers)
+            self.fill_random_numbers(amount_of_points)
 
         # Now we are ready to play!
         print("Now we are ready to play! Plotting field...")
@@ -117,11 +117,11 @@ class GameField(BaseField, ABC):
 
         return True
 
+    @property
     def is_finished(self):
 
-        # Нееффективно, можно потом тут ускорить
-        if np.any(self.game_field == -1):
-            return True
+        # Неэффективно, можно потом тут ускорить
+        return (self.game_field == -1).sum() == 81
 
     def plot(self):
         print(self.game_field)
