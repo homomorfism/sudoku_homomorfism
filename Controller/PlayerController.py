@@ -53,4 +53,4 @@ class PlayerController(BaseController, ABC):
             except ValueError:
                 continue
 
-            return row, column, value
+            return row - 1, column - 1, value

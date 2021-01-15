@@ -82,7 +82,7 @@ class GameField(BaseField, ABC):
                     break
 
                 else:
-                    print(f"We can not put {value} in ({row}, {column}) field, trying ones again!")
+                    # print(f"We can not put {value} in ({row}, {column}) field, trying ones again!")
                     continue
 
     def is_field_empty(self, row, column):

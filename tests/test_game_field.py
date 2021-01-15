@@ -45,6 +45,7 @@ class TestGameField(unittest.TestCase):
         )
 
     def test_can_be_finished(self):
+        print("Please set amount to generate points = 0 and input 9 9 8 in this test")
         player_controller = PlayerController()
         player_controller.game.game_field = np.array([
             [5, 8, 1, 6, 7, 2, 4, 3, 9],
