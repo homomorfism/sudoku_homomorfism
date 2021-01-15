@@ -1,6 +1,7 @@
-from abc import ABC, abstractmethod
-from GameField import GameField
 import pickle
+from abc import ABC, abstractmethod
+
+from GameField import GameField
 
 
 class BaseSaver:
@@ -20,7 +21,7 @@ class GameSaver(BaseSaver, ABC):
 
     def save_game(self, current_game) -> None:
         with open(self.file_path, "wb") as file:
-            pickle.dump({"game_field": current_game.game_field,}, file)
+            pickle.dump({"game_field": current_game.game_field, }, file)
 
     def reload_game(self):
         with open(self.file_path, "rb") as file:

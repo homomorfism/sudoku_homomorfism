@@ -6,6 +6,6 @@ How to run program:
 
 Example of usage:
 
-
-
 Добавить сохранение и загрузку
+
+У меня ввод row, column от 0 начинается (массив)

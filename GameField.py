@@ -1,6 +1,7 @@
-from abc import abstractmethod, ABC
-import numpy as np
 import random
+from abc import abstractmethod, ABC
+
+import numpy as np
 
 
 class BaseField:
@@ -90,7 +91,7 @@ class GameField(BaseField, ABC):
 
     def put_number(self, row, column, value):
         assert self.can_put_number(row, column, value), f"Value {value} can not be set in ({row}, {column}) field!"
-        assert 1 <= value <= 9
+        assert 0 <= value <= 9
 
         self.game_field[row][column] = value
 
@@ -133,3 +134,12 @@ class GameField(BaseField, ABC):
         assert self.is_field_empty(row, column), "This field is already empty!"
 
         self.game_field[row, column] = -1
+
+    def find_free_indexes(self):
+        for i in range(9):
+            for j in range(9):
+                if self.game_field[i][j] == 0:
+                    return i, j
+
+    def clean_field(self, row, column):
+        self.game_field[row][column] = 0
