@@ -50,8 +50,6 @@ class GameField(BaseField, ABC):
         # -1 is empty field
         self.field_size = 9
 
-        self.file_name = "sudoku_savings/1.pkl"
-
         # If game was saved from user
         if saved_state is not None:
             self.game_field = saved_state
@@ -104,8 +102,6 @@ class GameField(BaseField, ABC):
         # В этом квадрате уже есть эта цифра
         square_x, square_y = row // 3, column // 3
         square = self.game_field[square_x * 3: square_x * 3 + 3, square_y * 3: square_y * 3 + 3]
-        # print("Print square:", square)
-        # print(f"Coord of square: {square_x * 3, square_x * 3 + 3, square_y * 3, square_y * 3 + 3}")
         if np.any(square == value):
             return False
 

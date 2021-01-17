@@ -4,5 +4,5 @@ from abc import abstractmethod
 class BaseController:
 
     @abstractmethod
-    def solve(self):
+    def solve(self) -> bool:
         pass

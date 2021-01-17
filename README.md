@@ -7,9 +7,11 @@ How to run program:
 ```python
 python main.py
 ```
+
 Example of usage:
 
 User (example from test, partially generated field):
+
 ```bash
 How many point to generate? default - 0. $ Game is creating!
 Now we are ready to play! Plotting field...
@@ -43,7 +45,9 @@ Enter row, column and value to put number(in format: $1 5 7). $ 9 9 8
  [9 1 3 7 6 8 5 2 4]
  [6 2 7 4 3 5 1 9 8]]
 ```
-Computer: 
+
+Computer:
+
 ```bash
 /home/shamil/PycharmProjects/ML_Foundations_course/venv/bin/python /home/shamil/PycharmProjects/sudoku_homomorfism/main.py
 Who plays: 0 - human, 1 - computer, default: human. $ 1
